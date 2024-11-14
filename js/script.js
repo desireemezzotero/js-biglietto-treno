@@ -1,26 +1,30 @@
-const kmplayer = parseInt(prompt ('inserisci il numero di km che vuoi percorrere'));
-const ege = parseInt(prompt ('inserisci l\'età del passeggero che deve partire'));
-const pricekm = 0.21;
+// 1.
+const priceKm = 0.21;
+const youngDiscount = 20;
+const silverDiscount = 40;
+const silverLimit = 65; 
 
-console.log(kmplayer);
-console.log(ege);
-;
+let message, price; 
 
-const price = kmplayer * pricekm;
-discount20 = price * 20 / 100;
-discount40 = price * 40 / 100;
+// 2.
+const km= parseInt(prompt ('inserisci il numero di km che vuoi percorrere'));
+const age = parseInt(prompt ('inserisci l\'età del passeggero che deve partire'));
 
+// 3.
+price = priceKm * km;
 
-if (ege < 18) {
- const totalprice = price - discount20;
- console.log('il costo totale del biglietto è:', totalprice.toFixed(2), '€ l\'utente ha avuto il 20% di sconto');
-} else if (ege > 65) {
-  const totalprice = price - discount40;
-  console.log('il costo totale del biglietto è:', totalprice.toFixed(2), '€ l\'utente ha avuto il 40% di sconto');
+// 4. 
+
+if (age < 18) {
+  price -= price * youngDiscount / 100; 
+  message = `il costo totale del bilgietto è € ${price.toFixed(2)}, ti è stato applicato ${youngDiscount} %`
+} else if (age >= silverLimit) {
+  price -= price * silverDiscount / 100; 
+  message = `il costo totale del bilgietto è € ${price.toFixed(2)}, ti è stato applicato ${silverDiscount} %`
 } else {
-  const totalprice = price;
-  console.log('il costo totale del biglietto è:', totalprice.toFixed(2), '€ l\'utente non può ricevere uno sconto');
-} 
+  message = `il costo totale del tuo biglietto è di € ${price.toFixed(2)}`
+}
 
+// 4.
 
-
+console.log (message)
